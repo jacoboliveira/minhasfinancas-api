@@ -1,6 +1,8 @@
 package com.example.minhasfinancas.service;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,12 @@ public class UsuarioService implements IUsuarioService{
 		if(usuarioRepository.existsByEmail(email)) {
 			throw new RegraNegocioException("Já existe um usuário cadastrado com este e-mail");
 		}
+	}
+
+	@Override
+	public Optional<Usuario> findById(Long id) {
+		// TODO Auto-generated method stub
+		return usuarioRepository.findById(id);
 	}
 
 }
